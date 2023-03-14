@@ -27,3 +27,8 @@ jenkins:
           permissions: "Overall/Administer"
           assingnments: "chocolateen"
           description: "Marvin master"
+
+service:
+  jenkins:
+    environment:
+      USER_CHOCOLATEEN_PASSWORD: "chocolateen"
