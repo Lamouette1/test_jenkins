@@ -1,9 +1,6 @@
 jenkins:
-
   systemMessage: "Welcome to the Chocolatine-Powered Marvin Jenkins Instance."
 
-  remotingSecurity:
-    enabled: true
   securityRealm:
     local:
       allowsSignup: false
@@ -25,10 +22,85 @@ jenkins:
     roleBased:
       roles:
         global:
-          - name: "admin":
-          - permissions:
-            - "Overall/Administer"
-          - assingnments:
-            - "chocolateen"
-          - description:
-            - "Marvin master"
+          - name: "admin"
+            permissions:
+              - "Overall/Administer:chocolateen"
+            assignments:
+              - "chocolateen"
+            description: "Marvin master"
+          - name: "ape"
+            permissions:
+              - "Job/Build"
+              - "Job/Workspace"
+            assignments:
+              - "i_dont_know"
+            description: "Pedagogical team member"
+          - name: "gorilla"
+            permissions:
+              - "Job/Build"
+              - "Job/Workspace"
+              - "Job/Configure"
+              - "Job/Create"
+              - "Job/Delete"
+              - "Job/Move"
+              - "Job/Cancel"
+            assignments:
+              - "vaugie_g"
+            description: "Group Obsessively Researching Innovation Linked to Learning and Accomplishment"
+          - name: "assist"
+            permissions:
+              - "Job/Read"
+              - "Job/Workspace"
+            assignments:
+              - "nasso"
+            description: "Assistant"
+
+tools:
+  - name: "Tools"
+    description: "Folder for miscellaneous tools."
+
+jobs:
+  - name: "clone-repository"
+    folder: "Tools"
+    type: "freestyle"
+    description: "Clone repository"
+    execute:
+      shell: "git clone ${GIT_REPOSITORY_URL}"
+    cleanup: true
+    manual: true
+
+  - name: "SEED"
+    folder: "Tools"
+    type: "freestyle"
+    description: "Seed job"
+    parameters:
+      - name: "GITHUB_NAME"
+        description: "GitHub repository owner/repo_name (e.g.: 'EpitechIT31000/chocolatine')"
+      - name: "DISPLAY_NAME"
+        description: "Display name for the job"
+    execute:
+      jobDSL: |
+        freeStyleJob("${DISPLAY_NAME}") {
+          description("Job created by the SEED job")
+          properties {
+            githubProjectUrl("https://github.com/${GITHUB_NAME}")
+          }
+          scm {
+            git {
+              remote {
+                url("https://github.com/${GITHUB_NAME}.git")
+              }
+              branches("*/main")
+            }
+          }
+          steps {
+            shell("make fclean")
+            shell("make")
+            shell("make tests_run")
+            shell("make clean")
+          }
+          triggers {
+            scm("*/1 * * * *")
+          }
+        }
+    manual: true
