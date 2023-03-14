@@ -42,3 +42,6 @@ jenkins:
             permissions: "Overall/Read, Job/Read, Job/Workspace"
             assingnments: "nasso"
             description: "Assistant"
+
+jobs:
+  file: /var/lib/jenkins/job_dsl.groovy
