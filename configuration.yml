@@ -9,16 +9,16 @@ jenkins:
     local:
       allowsSignup: false
       users:
-        id: "chocolateen"
+        - id: "chocolateen"
           name: "Hugo"
           password: "${USER_CHOCOLATEEN_PASSWORD}"
-        id: "vaugie_g"
+        - id: "vaugie_g"
           name: "Garance"
           password: "${USER_VAUGIE_G_PASSWORD}"
-        id: "i_dont_know"
+        - id: "i_dont_know"
           name: "Jeremy"
           password: "${USER_I_DONT_KNOW_PASSWORD}"
-        id: "nasso"
+        - id: "nasso"
           name: "Nassim"
           password: "${USER_NASSO_PASSWORD}"
 
@@ -26,19 +26,19 @@ jenkins:
     roleBased:
       roles:
         global:
-          name: "admin"
+          - name: "admin"
             permissions: "Overall/Administer"
             assingnments: "chocolateen"
             description: "Marvin master"
-          name: "ape"
+          - name: "ape"
             permissions: "Overall/Read, Job/Read, Job/Build, Job/Workspace"
             assingnments: "i_dont_know"
             description: "Pedagogical team member"
-          name: "gorilla"
+          - name: "gorilla"
             permissions: "Overall/Read, Job/Read, Job/Build, Job/Workspace, Job/Create, Job/Configure, Job/Delete, Job/Cancel, Job/Move"
             assingnments: "vaugie_g"
             description: "Group Obsessively Researching Innovation Linked to Learning and Accomplishment"
-          name: "assist"
+          - name: "assist"
             permissions: "Overall/Read, Job/Read, Job/Workspace"
             assingnments: "nasso"
             description: "Assistant"
