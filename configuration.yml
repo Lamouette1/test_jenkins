@@ -30,3 +30,7 @@ jenkins:
             permissions: "Overall/Administer"
             assingnments: "chocolateen"
             description: "Marvin master"
+          name: "ape"
+            permissions: "Overall/Read, Job/Read, Job/Build, Job/Workspace"
+            assingnments: "i_dont_know"
+            description: "Pedagogical team member"
