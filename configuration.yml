@@ -4,7 +4,7 @@ jenkins:
 
   securityRealm:
     local:
-      allowsSignup: false
+      allowsSignup: true
       users:
         id: "chocolateen"
         name: "Hugo"
