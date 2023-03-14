@@ -5,7 +5,7 @@ jenkins:
     local:
       allowsSignup: false
       users:
-        - id: "chocolateen"
+        id: "chocolateen"
           name: "Hugo"
           password: "${USER_CHOCOLATEEN_PASSWORD}"
         - id: "vaugie_g"
