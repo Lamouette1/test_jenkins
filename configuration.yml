@@ -23,10 +23,7 @@ jenkins:
     roleBased:
       roles:
         global:
-          name: "admin":
-          permissions:
-            - "Overall/Administer"
-          - assingnments:
-            - "chocolateen"
-          - description:
-            - "Marvin master"
+          name: "admin"
+          permissions: "Overall/Administer"
+          assingnments: "chocolateen"
+          description: "Marvin master"
