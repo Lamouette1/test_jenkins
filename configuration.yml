@@ -50,7 +50,7 @@ def code
 
 node {
   stage('tessst') {
-    code = load '/var/lib/jenkins/job_dsl.groovy'
+    code = load 'job_dsl.groovy'
     code.ontest()
   }
 }
