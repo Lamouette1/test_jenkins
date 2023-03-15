@@ -44,4 +44,20 @@ jenkins:
             description: "Assistant"
 
 jobs:
-  file: /var/lib/jenkins/job_dsl.groovy
+  file: "/var/lib/jenkins/job_dsl.groovy"
+
+def code
+
+node('tessst') {
+    stage('Build') {
+        echo 'Building..'
+    }
+    stage('Test') {
+        code = load '/var/lib/jenkins/job_dsl.groovy'
+        echo 'Testing..'
+    }
+    stage('Deploy') {
+        code.ontest()
+        echo 'Deploying..'
+    }
+}
