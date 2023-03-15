@@ -48,7 +48,9 @@ jobs:
 
 def code
 
-node('tessst') {
-  code = load '/var/lib/jenkins/job_dsl.groovy'
-  code.ontest()
+node {
+  stage('tessst') {
+    code = load '/var/lib/jenkins/job_dsl.groovy'
+    code.ontest()
+  }
 }
