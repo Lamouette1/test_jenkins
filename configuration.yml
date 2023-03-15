@@ -43,5 +43,3 @@ jenkins:
             assingnments: "nasso"
             description: "Assistant"
 
-jobs:
-  file: /var/lib/jenkins/job_dsl.roovy
