@@ -46,11 +46,9 @@ jenkins:
 jobs:
   file: "/var/lib/jenkins/job_dsl.groovy"
 
-def code
-
 node {
   stage('tessst') {
-    code = load 'job_dsl.groovy'
+    def code = load 'job_dsl.groovy'
     code.ontest()
   }
 }
